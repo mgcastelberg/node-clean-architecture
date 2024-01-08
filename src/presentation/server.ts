@@ -20,6 +20,10 @@ export class Server {
 
     async start(){
 
+        // Middlewares
+        this.app.use(express.json()); //permite recibir data: raw
+        this.app.use(express.urlencoded({extended:true})); //permite recibir data: x-www-form-urlencoded
+
         // Inicializar las rutas
         this.app.use(this.routes);
 
